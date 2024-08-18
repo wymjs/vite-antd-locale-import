@@ -1,0 +1,54 @@
+{
+	"name": "@wymjs/vite-antd-locale-import",
+	"version": "0.0.0",
+	"type": "module",
+	"description": "通過配置動態產出對應的 dayjs 與 antd date-picker/locale 的語系 import 語法",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"readme.md"
+	],
+	"scripts": {
+		"build": "tsup-node src/index.ts --external antd dayjs vite --platform node --format esm --dts --clean",
+		"publish-package": "pnpm run build && npm publish",
+		"lint": "eslint --fix --no-ignore --max-warnings=0",
+		"format": "prettier --cache --write",
+		"prepare": "husky install"
+	},
+	"homepage": "https://github.com/wymjs/vite-antd-locale-import",
+	"keywords": [
+		"wymjs",
+		"typescript",
+		"vite",
+		"antd",
+		"i18n"
+	],
+	"license": "ISC",
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,vue}": "pnpm run lint",
+		"*.{js,jsx,ts,tsx,vue,css,sass,scss,less}": "pnpm run format"
+	},
+	"dependencies": {
+		"antd": "^5.15.3",
+		"dayjs": "^1.11.10",
+		"vite": "^5.0.10"
+	},
+	"devDependencies": {
+		"@types/node": "^20.9.0",
+		"@typescript-eslint/eslint-plugin": "^7.1.1",
+		"@typescript-eslint/parser": "^7.1.1",
+		"eslint": "^8.57.0",
+		"eslint-plugin-unused-imports": "^3.0.0",
+		"husky": "^8.0.3",
+		"lint-staged": "^15.1.0",
+		"prettier": "^3.1.0",
+		"tsup": "^8.0.1",
+		"typescript": "^5.2.2"
+	},
+	"peerDependencies": {
+		"vite": ">=5",
+		"antd": ">=5",
+		"dayjs": ">=1"
+	}
+}
