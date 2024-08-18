@@ -11,7 +11,7 @@
 	],
 	"scripts": {
 		"build": "tsup-node src/index.ts --external antd dayjs vite --platform node --format esm --dts --clean",
-		"publish-package": "pnpm run build && npm publish",
+		"publish-package": "pnpm run build && npm publish --access public",
 		"lint": "eslint --fix --no-ignore --max-warnings=0",
 		"format": "prettier --cache --write",
 		"prepare": "husky install"
